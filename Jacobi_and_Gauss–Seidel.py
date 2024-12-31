@@ -21,7 +21,7 @@ def make_diagonally_dominant(matrix, vector):
 
 
 # פונקציה לשיטת יעקובי
-def jacobi_method(matrix, vector, tolerance=1e-5, max_iterations=100):
+def jacobi_method(matrix, vector, tolerance=0.00001, max_iterations=100):
     n = len(matrix)
     x = [0] * n  # פתרון התחלתי
     for iteration in range(max_iterations):
@@ -44,7 +44,7 @@ def jacobi_method(matrix, vector, tolerance=1e-5, max_iterations=100):
 
 
 # פונקציה לשיטת גאוס-זיידל
-def gauss_seidel_method(matrix, vector, tolerance=1e-5, max_iterations=100):
+def gauss_seidel_method(matrix, vector, tolerance=0.00001, max_iterations=100):
     n = len(matrix)
     x = [0] * n  # פתרון התחלתי
     for iteration in range(max_iterations):
