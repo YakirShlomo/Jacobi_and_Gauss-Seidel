@@ -23,14 +23,13 @@ def make_diagonally_dominant(matrix, vector):
 # פונקציה לשיטת יעקובי
 def jacobi_method(matrix, vector, tolerance=0.00001, max_iterations=100):
     n = len(matrix)
-    x = [0] * n  # פתרון התחלתי
+    x = [0] * n  
     for iteration in range(max_iterations):
         x_new = [0] * n
         for i in range(n):
             s = sum(matrix[i][j] * x[j] for j in range(n) if j != i)
             x_new[i] = (vector[i] - s) / matrix[i][i]
 
-        # הצגת הפתרון באיטרציה הנוכחית
         print(f"Iteration {iteration + 1}: {x_new}")
 
         # בדיקת התכנסות
@@ -46,15 +45,14 @@ def jacobi_method(matrix, vector, tolerance=0.00001, max_iterations=100):
 # פונקציה לשיטת גאוס-זיידל
 def gauss_seidel_method(matrix, vector, tolerance=0.00001, max_iterations=100):
     n = len(matrix)
-    x = [0] * n  # פתרון התחלתי
+    x = [0] * n  
     for iteration in range(max_iterations):
-        x_new = x[:]  # העתק של הפתרון הנוכחי
+        x_new = x[:] 
         for i in range(n):
             s1 = sum(matrix[i][j] * x_new[j] for j in range(i))
             s2 = sum(matrix[i][j] * x[j] for j in range(i + 1, n))
             x_new[i] = (vector[i] - s1 - s2) / matrix[i][i]
 
-        # הצגת הפתרון באיטרציה הנוכחית
         print(f"Iteration {iteration + 1}: {x_new}")
 
         # בדיקת התכנסות
